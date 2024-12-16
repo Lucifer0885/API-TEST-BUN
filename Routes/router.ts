@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import AppController from "../Controllers/app.controller";
+import ProductController from "../Controllers/product.controller";
 
 const initRoutes = () => {
     const app = express()
@@ -13,6 +14,13 @@ const initRoutes = () => {
     app.listen(3001)
     
     app.get('/', AppController.index)
+
+    app.get('/products', ProductController.displayAll)
+    app.post('/products', ProductController.create)
+    app.get('/products/:id', ProductController.show)
+    app.put('/products/:id', ProductController.update)
+    app.delete('/products/:id', ProductController.delete)
+
     app.all("*", AppController.notDefinedRoute)
 
 }
