@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import AppController from "../Controllers/app.controller";
 import ProductController from "../Controllers/product.controller";
 
+const PORT = 3001
+
 const initRoutes = () => {
     const app = express()
     
@@ -11,7 +13,9 @@ const initRoutes = () => {
         extended: false
     }))
 
-    app.listen(3001)
+    app.listen(PORT,() => {
+        console.log(`Listening on port: ${PORT}`)
+    })
     
     app.get('/', AppController.index)
 
