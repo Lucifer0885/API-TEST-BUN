@@ -17,7 +17,7 @@ const initRoutes = () => {
 
     app.get('/products', ProductController.displayAll)
     app.post('/products', ProductController.create)
-    app.get('/products/:id', ProductController.show)
+    app.get('/products/:slug', ProductController.show)
     app.put('/products/:id', ProductController.update)
     app.delete('/products/:id', ProductController.delete)
 
